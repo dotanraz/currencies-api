@@ -51,4 +51,4 @@ public class CurrencyController {
         currencyService.addCurrency(currency);
     }
 
-    }
+}
