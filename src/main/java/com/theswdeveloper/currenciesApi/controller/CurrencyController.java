@@ -48,7 +48,6 @@ public class CurrencyController {
 
     @PostMapping(path = "addCurrency", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addCurrency(@RequestBody Currency currency) throws Exception {
-        System.out.println("");
         currencyService.addCurrency(currency);
     }
 
