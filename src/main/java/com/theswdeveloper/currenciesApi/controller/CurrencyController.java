@@ -2,7 +2,6 @@ package com.theswdeveloper.currenciesApi.controller;
 
 import com.theswdeveloper.currenciesApi.modelObjects.Currency;
 import com.theswdeveloper.currenciesApi.service.CurrencyService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,13 +18,12 @@ public class CurrencyController {
 
     private CurrencyService currencyService = new CurrencyService();
 
-    @Autowired
     public CurrencyController() throws SQLException {
 
     }
 
     @GetMapping(path = "healthCheck")
-    public String hello() {
+    public String healthCheck() {
         return "currency service is up";
     }
 

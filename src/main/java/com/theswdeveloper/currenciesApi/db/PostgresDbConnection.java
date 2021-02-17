@@ -6,11 +6,10 @@ import java.sql.SQLException;
 
 /**
  * make sure to run postgres:
- * docker run --name postgres1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
+ * docker run -e POSTGRES_PASSWORD=1234 -p 5432:5432 postgres
  */
 public class PostgresDbConnection {
 
-    private String appName;
     private static PostgresDbConnection postgresDbConnection;
     private BasicDataSource ds;
 
@@ -34,8 +33,17 @@ public class PostgresDbConnection {
         }
     }
 
-    public Connection getConnection() throws SQLException {
-        return this.ds.getConnection();
+    public Connection getConnection() {
+        Connection connection = null;
+        try {
+            connection = this.ds.getConnection();
+        }
+        catch (SQLException e) {
+            System.out.println("ERROR: fail to create postgres connection. make sure postgres is running");
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return connection;
     }
 
 }

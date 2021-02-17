@@ -4,7 +4,6 @@ import com.theswdeveloper.currenciesApi.db.QueryExecutor;
 import com.theswdeveloper.currenciesApi.modelObjects.Currency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.Map;
 @Service
 public class CurrencyService {
 
-    @Autowired
     public CurrencyService() throws SQLException {
         createCurrencyTableIfNotExist();
     }
