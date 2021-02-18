@@ -4,8 +4,6 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres1
-#    volumes:
-#      - postgres-data:/var/lib/postgresql/data
     expose:
       - 5432
     ports:
@@ -13,10 +11,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=1234
     restart: unless-stopped
-#### User Management API ####
-  usermanagementapi:
+#### Currencies API ####
+  currencies:
     image: currencies-api:latest
-#    network_mode: host
     container_name: currencies
     expose:
       - 8080
@@ -27,9 +24,3 @@ services:
     restart: unless-stopped
     depends_on:
       - postgres
-#volumes:
-#  postgres-data:
-
-#networks:
-#  default:
-#    driver: bridge
