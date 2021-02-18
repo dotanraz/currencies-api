@@ -14,10 +14,11 @@ public class PostgresDbConnection {
     private BasicDataSource ds;
 
     private PostgresDbConnection() {
+        String postgresIp = System.getenv("ip") == null ? "127.0.0.1" : System.getenv("ip");
         ds = new BasicDataSource();
         ds.setUsername("postgres");
         ds.setPassword("1234");
-        ds.setUrl("jdbc:postgresql://127.0.0.1:5432/postgres");
+        ds.setUrl("jdbc:postgresql://" + postgresIp +":5432/postgres");
 
         ds.setMinIdle(5);
         ds.setMaxIdle(20);
